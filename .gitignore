@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Terraform
+infra/bedrock-gateway/.terraform/
+infra/bedrock-gateway/.terraform.lock.hcl
+infra/bedrock-gateway/terraform.tfstate*
+infra/bedrock-gateway/.build/
+infra/bedrock-gateway/.rollback/
+infra/bedrock-gateway/*.tfplan
+infra/bedrock-gateway/tfplan
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

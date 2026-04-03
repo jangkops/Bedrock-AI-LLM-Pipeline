@@ -1,0 +1,10 @@
+environment                                = "dev"
+aws_region                                 = "us-west-2"
+ses_sender_email                           = "mogam.infra.admin-noreply@mogam.re.kr"
+ses_admin_group_email                      = "changgeun.jang@mogam.re.kr"
+discovery_mode                             = false
+manage_api_gateway_account_cloudwatch_role = false
+api_gateway_data_trace_enabled             = true
+api_gateway_execution_logging_level        = "INFO"
+private_subnet_ids         = ["subnet-0809ebd78013e946b", "subnet-06d9f3a6efddd8a67"]
+fargate_security_group_ids = ["sg-0d9246fcbbc10ae9b"]

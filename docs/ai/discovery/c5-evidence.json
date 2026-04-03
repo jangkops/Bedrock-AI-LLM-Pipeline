@@ -1,0 +1,45 @@
+{
+  "capture_id": "C5",
+  "timestamp": "2026-03-XX T..Z",
+  "environment": "<FILL: laptop or fsx>",
+  "user": "admin",
+  "role_assumed": "arn:aws:iam::107650139384:role/BedrockUser-cgjang",
+  "credential_source": "<FILL: sts assume-role>",
+
+  "sts_get_caller_identity": {
+    "Account": "107650139384",
+    "UserId": "<FILL: RoleId>:<FILL: session-name>",
+    "Arn": "<FILL: arn:aws:sts::107650139384:assumed-role/BedrockUser-cgjang/<session-name>>"
+  },
+
+  "api_gateway_request_context_identity": {
+    "userArn": "<FILL>",
+    "caller": "<FILL>",
+    "accountId": "<FILL>",
+    "accessKey": "<FILL>",
+    "sourceIp": "<FILL>",
+    "userAgent": "<FILL>"
+  },
+
+  "discovery_lambda_response": {
+    "raw_identity": "<FILL: paste full raw_identity from Lambda response>",
+    "derived_principal_id": "<FILL: paste derived_principal_id from Lambda response>"
+  },
+
+  "extracted_fields": {
+    "role_name": "<FILL: should be BedrockUser-cgjang>",
+    "session_name": "<FILL: actual session name value>",
+    "account_id": "107650139384"
+  },
+
+  "candidate_f_result": "<FILL: should be empty string after Candidate F implementation — BedrockUser-cgjang is rejected>",
+
+  "fail_closed_validation": {
+    "expected_normalization_result": "",
+    "expected_behavior": "deny-by-default — BedrockUser-cgjang is not a per-user role",
+    "actual_normalization_result": "<FILL>",
+    "actual_behavior": "<FILL>"
+  },
+
+  "_instructions": "Human operator: this capture validates fail-closed behavior. With current placeholder, derived_principal_id will be the raw userArn (not empty). After Candidate F implementation, it should return empty string for BedrockUser-Shared. Record both the placeholder result and note the expected post-implementation result."
+}
