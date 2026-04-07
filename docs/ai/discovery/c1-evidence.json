@@ -1,0 +1,63 @@
+{
+  "capture_id": "C1",
+  "timestamp": "2026-03-17",
+  "environment": "fsx",
+  "user": "cgjang",
+  "role_assumed": "arn:aws:iam::<ACCOUNT_ID>:role/BedrockUser-cgjang",
+  "credential_source": "Ec2InstanceMetadata (existing [default] profile)",
+
+  "sts_get_caller_identity": {
+    "Account": "<ACCOUNT_ID>",
+    "UserId": "AROARSEDSYT4BXBD4YZYI:botocore-session-1773731811",
+    "Arn": "arn:aws:sts::<ACCOUNT_ID>:assumed-role/BedrockUser-cgjang/botocore-session-1773731811"
+  },
+
+  "api_gateway_request_context_identity": {
+    "userArn": "arn:aws:sts::<ACCOUNT_ID>:assumed-role/BedrockUser-cgjang/botocore-session-1773732261",
+    "caller": "AROARSEDSYT4BXBD4YZYI:botocore-session-1773732261",
+    "accountId": "<ACCOUNT_ID>",
+    "sourceIp": "35.161.33.3",
+    "userAgent": "Python-urllib/3.10"
+  },
+
+  "discovery_lambda_response": {
+    "raw_identity": {
+      "userArn": "arn:aws:sts::<ACCOUNT_ID>:assumed-role/BedrockUser-cgjang/botocore-session-1773732261",
+      "caller": "AROARSEDSYT4BXBD4YZYI:botocore-session-1773732261",
+      "accountId": "<ACCOUNT_ID>",
+      "sourceIp": "35.161.33.3",
+      "userAgent": "Python-urllib/3.10"
+    },
+    "derived_principal_id": "arn:aws:sts::<ACCOUNT_ID>:assumed-role/BedrockUser-cgjang/botocore-session-1773732261"
+  },
+
+  "extracted_fields": {
+    "role_name": "BedrockUser-cgjang",
+    "session_name_sts": "botocore-session-1773731811",
+    "session_name_apigw": "botocore-session-1773732261",
+    "account_id": "<ACCOUNT_ID>",
+    "role_unique_id": "AROARSEDSYT4BXBD4YZYI"
+  },
+
+  "candidate_f_result": "<ACCOUNT_ID>#BedrockUser-cgjang",
+
+  "analysis": {
+    "session_name_pattern": "botocore-session-<epoch>. SDK-generated, non-deterministic. Different between STS call and API GW call (different boto3 sessions).",
+    "session_name_authoritative": false,
+    "role_name_stable": true,
+    "candidate_f_supported": true,
+    "placeholder_behavior_confirmed": "derived_principal_id returns full userArn (including session name) — expected placeholder behavior. Post-Candidate-F implementation would return <ACCOUNT_ID>#BedrockUser-cgjang.",
+    "environment_indicators": "sourceIp=35.161.33.3, userAgent=Python-urllib/3.10 — consistent with FSx/EC2 environment using boto3/botocore",
+    "cross_env_status": "SINGLE ENVIRONMENT ONLY. Laptop capture (C2) pending for cross-env consistency validation.",
+    "original_template_user": "Template had jwlee as user. Actual capture is cgjang — the operator who executed the discovery."
+  },
+
+  "_notes": [
+    "This is SINGLE-USER, SINGLE-ENVIRONMENT evidence. NOT sufficient for normalization lock.",
+    "Cross-environment (C2 laptop) pending for same user.",
+    "Cross-role isolation (C3) pending for different user.",
+    "Fail-closed (C5) pending for BedrockUser-Shared.",
+    "Session name botocore-session-* confirms session names are SDK-generated and non-deterministic.",
+    "Full assumed-role ARN with session suffix MUST NOT be the final principal_id."
+  ]
+}

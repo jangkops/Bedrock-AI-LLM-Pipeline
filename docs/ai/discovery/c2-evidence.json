@@ -1,0 +1,38 @@
+{
+  "capture_id": "C2",
+  "timestamp": "2026-03-XX T..Z",
+  "environment": "fsx",
+  "user": "jwlee",
+  "role_assumed": "arn:aws:iam::<ACCOUNT_ID>:role/BedrockUser-cgjang",
+  "credential_source": "Ec2InstanceMetadata (existing [default] profile)",
+
+  "sts_get_caller_identity": {
+    "Account": "<ACCOUNT_ID>",
+    "UserId": "<FILL: RoleId>:<FILL: session-name>",
+    "Arn": "<FILL: arn:aws:sts::<ACCOUNT_ID>:assumed-role/BedrockUser-cgjang/<session-name>>"
+  },
+
+  "api_gateway_request_context_identity": {
+    "userArn": "<FILL>",
+    "caller": "<FILL>",
+    "accountId": "<FILL>",
+    "accessKey": "<FILL>",
+    "sourceIp": "<FILL>",
+    "userAgent": "<FILL>"
+  },
+
+  "discovery_lambda_response": {
+    "raw_identity": "<FILL: paste full raw_identity from Lambda response>",
+    "derived_principal_id": "<FILL: paste derived_principal_id from Lambda response>"
+  },
+
+  "extracted_fields": {
+    "role_name": "<FILL: e.g. BedrockUser-cgjang>",
+    "session_name": "<FILL: actual session name value — likely EC2 instance ID>",
+    "account_id": "<ACCOUNT_ID>"
+  },
+
+  "candidate_f_result": "<FILL: e.g. <ACCOUNT_ID>#BedrockUser-cgjang>",
+
+  "_instructions": "Human operator: fill all <FILL> fields from actual AWS capture on FSx. Use existing [default] profile — no credential file modification needed."
+}

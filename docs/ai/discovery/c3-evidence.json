@@ -1,0 +1,38 @@
+{
+  "capture_id": "C3",
+  "timestamp": "2026-03-XX T..Z",
+  "environment": "<FILL: laptop or fsx>",
+  "user": "shlee2",
+  "role_assumed": "arn:aws:iam::<ACCOUNT_ID>:role/BedrockUser-shlee2",
+  "credential_source": "<FILL: sts assume-role or Ec2InstanceMetadata>",
+
+  "sts_get_caller_identity": {
+    "Account": "<ACCOUNT_ID>",
+    "UserId": "<FILL: RoleId>:<FILL: session-name>",
+    "Arn": "<FILL: arn:aws:sts::<ACCOUNT_ID>:assumed-role/BedrockUser-shlee2/<session-name>>"
+  },
+
+  "api_gateway_request_context_identity": {
+    "userArn": "<FILL>",
+    "caller": "<FILL>",
+    "accountId": "<FILL>",
+    "accessKey": "<FILL>",
+    "sourceIp": "<FILL>",
+    "userAgent": "<FILL>"
+  },
+
+  "discovery_lambda_response": {
+    "raw_identity": "<FILL: paste full raw_identity from Lambda response>",
+    "derived_principal_id": "<FILL: paste derived_principal_id from Lambda response>"
+  },
+
+  "extracted_fields": {
+    "role_name": "<FILL: e.g. BedrockUser-shlee2>",
+    "session_name": "<FILL: actual session name value>",
+    "account_id": "<ACCOUNT_ID>"
+  },
+
+  "candidate_f_result": "<FILL: e.g. <ACCOUNT_ID>#BedrockUser-shlee2>",
+
+  "_instructions": "Human operator: fill all <FILL> fields. This capture validates cross-role isolation — C3 principal_id must differ from C1/C2."
+}
